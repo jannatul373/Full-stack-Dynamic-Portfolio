@@ -58,7 +58,7 @@
     <p class="card-short-desc">This is a short description.</p>
   </div>
   <div class="card-detail">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolore molestiae reiciendis reprehenderit voluptas dolor deleniti inventore quasi? Incidunt id nemo modi quo, sed nesciunt nihil dolorum voluptate recusandae exercitationem.
+     Here is a short description.
   </div>
 </div>
 
