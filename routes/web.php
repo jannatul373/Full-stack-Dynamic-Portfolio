@@ -8,3 +8,10 @@ Route::get('/', function () {
 Route::get('/lp1', function () {
     return view('lp1');
 });
+
+Route::view('/', 'home');
+Route::view('/', 'welcome');
+Route::view('/about', 'about');
+Route::view('/projects', 'projects');
+
+Route::view('/contacts', 'contacts');
