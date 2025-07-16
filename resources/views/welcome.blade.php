@@ -307,7 +307,7 @@ footer {
       </div>
     </div>
     <div class="hero-image">
-      <img src="assets/images/p.png.png" alt="Profile Photo" />
+      <img src="assets/images/di.jpg" alt="Profile Photo" />
     </div>
   </section>
 
@@ -346,7 +346,7 @@ footer {
   </section>
 
   <footer>
-  xyz@gmail.com. All rights reserved.
+  jannatuldiya959@gmail.com All rights reserved.
   <div class="social-icons">
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
