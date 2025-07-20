@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->id(); // Primary Key
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign Key
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('phone')->nullable();
-            $table->string('avatar')->nullable();
-            $table->string('student_id')->unique()->nullable();
+            $table->enum('type', ['technical', 'soft']);
+            $table->enum('level', ['beginner', 'intermediate', 'expert']);
+            $table->string('logo')->nullable();
             $table->timestamps(); // created_at and updated_at
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('skills');
     }
 };
