@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('personal_details', function (Blueprint $table) {
             $table->id(); // Primary Key
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign Key to users table
+            $table->unsignedBigInteger('user_id');
             $table->text('description')->nullable();
             $table->string('blood_group')->nullable();
             $table->string('department')->nullable();
@@ -23,7 +23,11 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->timestamps(); // created_at and updated_at
         });
+        Schema::table('personal_details', function (Blueprint $table) {
+         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         });
     }
+   
 
     /**
      * Reverse the migrations.

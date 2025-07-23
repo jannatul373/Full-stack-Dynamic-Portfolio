@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id(); // Primary Key
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign Key
+             $table->unsignedBigInteger('user_id');
             $table->enum('type', ['job', 'internship', 'freelance', 'volunteer']);
             $table->string('designation');
             $table->string('organization');
@@ -21,6 +21,9 @@ return new class extends Migration
             $table->date('to_date')->nullable();
             $table->timestamps(); // created_at and updated_at
         });
+        Schema::table('experiences', function (Blueprint $table) {
+         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         });
     }
 
     /**

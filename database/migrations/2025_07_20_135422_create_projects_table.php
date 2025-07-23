@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id(); // Primary Key
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign Key
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->text('description');
             $table->string('github_url')->nullable();
@@ -26,6 +26,9 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive', 'in-progress']);
             $table->timestamps(); // created_at and updated_at
         });
+        Schema::table('projects', function (Blueprint $table) {
+         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         });
     }
 
     /**

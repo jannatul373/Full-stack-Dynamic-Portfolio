@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('achievements', function (Blueprint $table) {
             $table->id(); // Primary Key
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign Key
+             $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->enum('type', ['award', 'certification', 'recognition']);
             $table->string('certification')->nullable();
@@ -23,6 +23,9 @@ return new class extends Migration
             $table->enum('category', ['academic', 'professional', 'other']);
             $table->timestamps(); // created_at and updated_at
         });
+        Schema::table('achievements', function (Blueprint $table) {
+         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         });
     }
 
     /**

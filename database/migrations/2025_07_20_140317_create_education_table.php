@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('educations', function (Blueprint $table) {
             $table->id(); // Primary Key
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign Key
+            $table->unsignedBigInteger('user_id');
             $table->string('type'); // e.g., SSC, HSC, BSc, MSc, etc.
             $table->string('name'); // Program name or degree title
             $table->string('institute'); // Name of institution
@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('grade'); // Grade, CGPA, or percentage
             $table->timestamps(); // created_at and updated_at
         });
+         Schema::table('educations', function (Blueprint $table) {
+         $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         });
     }
 
     /**
