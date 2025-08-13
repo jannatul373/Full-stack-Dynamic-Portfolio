@@ -286,6 +286,7 @@ footer {
      
         <a href="{{ url('/') }}">Home</a>
          <a href="{{ url('/projects') }}">Projects</a>
+          <a href="{{ url('/skill') }}">Skills</a>
         
         <a href="{{ url('/about') }}">About</a>
      
@@ -303,11 +304,13 @@ footer {
       <h1>Software Developer</h1>
       <div class="buttons">
         <button class="project-btn" onclick="location.href='projects.html'">Got a project?</button>
-        <button class="resume-btn" onclick="location.href='resume.pdf'">My Resume</button>
+        <button class="resume-btn" onclick="location.href='{{ url('/resume') }}'">My Resume</button>
+
+
       </div>
     </div>
     <div class="hero-image">
-      <img src="assets/images/di.jpg" alt="Profile Photo" />
+      <img src="assets/images/diya.jpg" alt="Profile Photo" />
     </div>
   </section>
 
